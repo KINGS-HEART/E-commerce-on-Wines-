@@ -280,6 +280,41 @@
         updateBadge();
         updateCartUI();
       });
+
+      const checkoutBtn = $('.checkout-btn');
+      if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', () => {
+          if (state.cart.length === 0) {
+            alert('Your cart is empty');
+            return;
+          }
+
+          const total = state.cart.reduce((sum, item) => sum + item.price, 0);
+          const email = $('#cart-email')?.value || 'customer@example.com';
+
+          // Note: You should replace 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' with your actual Paystack public key.
+          const handler = PaystackPop.setup({
+            key: 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+            email: email,
+            amount: Math.round(total * 100), // Amount in kobo
+            currency: 'NGN',
+            ref: 'BEJ-' + Math.floor((Math.random() * 1000000000) + 1),
+            callback: function(response) {
+              alert('Payment complete! Reference: ' + response.reference);
+              state.cart.length = 0;
+              state.cartCount = 0;
+              updateBadge();
+              updateCartUI();
+              closeCart();
+            },
+            onClose: function() {
+              alert('Payment window closed.');
+            }
+          });
+
+          handler.openIframe();
+        });
+      }
   
       $$('.photo-add-btn, .add-to-cart-btn').forEach(btn => {
         btn.addEventListener('click', e => {
