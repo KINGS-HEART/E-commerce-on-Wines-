@@ -291,14 +291,29 @@
 
           const total = state.cart.reduce((sum, item) => sum + item.price, 0);
           const email = $('#cart-email')?.value || 'customer@example.com';
+          const fullName = $('#cart-name')?.value || '';
+          const phone = $('#cart-phone')?.value || '';
 
-          // Note: You should replace 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' with your actual Paystack public key.
           const handler = PaystackPop.setup({
-            key: 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+            key: 'pk_test_0ebacd0179556628f883151650864d7d8dea86b7',
             email: email,
             amount: Math.round(total * 100), // Amount in kobo
             currency: 'NGN',
             ref: 'BEJ-' + Math.floor((Math.random() * 1000000000) + 1),
+            metadata: {
+              custom_fields: [
+                {
+                  display_name: "Full Name",
+                  variable_name: "full_name",
+                  value: fullName
+                },
+                {
+                  display_name: "Phone Number",
+                  variable_name: "phone_number",
+                  value: phone
+                }
+              ]
+            },
             callback: function(response) {
               alert('Payment complete! Reference: ' + response.reference);
               state.cart.length = 0;
