@@ -194,22 +194,15 @@
     
   
     function handleCart() {
-      // Create badge near the second header img (cart icon)
-      const header = $('.header');
-      if (header) {
-        const imgs = $$('img', header);
-        const cartImg = imgs[1] || imgs[0];
-        if (cartImg && !$('.cart-badge', header)) {
+      const cartTrigger = $('.cart-trigger');
+      if (cartTrigger) {
+        if (!$('.cart-badge', cartTrigger)) {
           const badge = document.createElement('span');
           badge.className = 'cart-badge';
           badge.textContent = '0';
-          header.appendChild(badge);
+          cartTrigger.appendChild(badge);
         }
-        // Open cart on cart icon click
-        if (cartImg) {
-          cartImg.style.cursor = 'pointer';
-          cartImg.addEventListener('click', openCart);
-        }
+        cartTrigger.addEventListener('click', openCart);
       }
   
       function updateBadge() {
@@ -365,10 +358,28 @@
       handlePagination();
       handleCart();
   
+      // Mobile menu toggle
+      const menuToggle = $('.menu-toggle');
+      const navbar = $('.navbar');
+      if (menuToggle && navbar) {
+        menuToggle.addEventListener('click', () => {
+          menuToggle.classList.toggle('active');
+          navbar.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        $$('a', navbar).forEach(link => {
+          link.addEventListener('click', () => {
+            menuToggle.classList.remove('active');
+            navbar.classList.remove('active');
+          });
+        });
+      }
+
       // Mobile filters toggle
-      const filtersToggle = document.querySelector('.filters-toggle');
-      const sidebar = document.querySelector('.sidebar');
-      const backdropEl = document.querySelector('.cart-backdrop');
+      const filtersToggle = $('.filters-toggle');
+      const sidebar = $('.sidebar');
+      const backdropEl = $('.cart-backdrop');
       if (filtersToggle && sidebar) {
         filtersToggle.addEventListener('click', () => {
           const nowOpen = !sidebar.classList.contains('open');
