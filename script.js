@@ -9,7 +9,7 @@
     const state = {
       page: 1,    
       //  current pagination page
-      perPage: 6, // default; layout adapts responsively
+      perPage: 12, // Increased for better big screen experience
       sort: 'none', // 'price-asc' | 'price-desc' | 'newest'
       categories: new Set(),
       priceRanges: new Set(),
@@ -18,14 +18,25 @@
       cart: [], // {title, price, thumbSrc}
     };
   
+    function parsePrice(text) {
+      if (!text) return 0;
+      // Handle 'k' notation (e.g., 26k -> 26000) and remove currency symbols
+      let clean = text.toLowerCase().replace(/[^0-9.k]/g, '');
+      if (clean.includes('k')) {
+        let val = parseFloat(clean.replace('k', '')) || 0;
+        return val * 1000;
+      }
+      return parseFloat(clean) || 0;
+    }
+
     // Parse photo items into data objects
     function parseItems() {
       const cards = $$('.photo-item');
       state.items = cards.map((el, idx) => {
         const category = $('.photo-category', el)?.textContent.trim() || '';
         const title = $('.photo-title', el)?.textContent.trim() || '';
-        const priceText = $('.photo-price', el)?.textContent.replace(/[^0-9.]/g, '') || '0';
-        const price = Number(priceText) || 0;
+        const priceText = $('.photo-price', el)?.textContent || '0';
+        const price = parsePrice(priceText);
         // Use DOM order as a proxy for recency (higher idx = newer)
         const createdAt = Date.now() - (cards.length - idx) * 1000;
         return { el, category, title, price, createdAt };
@@ -52,18 +63,18 @@
       const ranges = Array.from(state.priceRanges);
       return ranges.some(label => {
         const txt = label.toLowerCase();
+        const numbers = label.match(/\d+/g);
+        if (!numbers) return true;
+
         if (txt.includes('lower than')) {
-          const m = label.match(/(\d+)/);
-          return m ? price < Number(m[1]) : true;
+          return price < Number(numbers[0]);
         }
         if (txt.includes('more than')) {
-          const m = label.match(/(\d+)/);
-          return m ? price > Number(m[1]) : true;
+          return price > Number(numbers[0]);
         }
-        const between = label.match(/\$(\d+)\s*-\s*\$(\d+)/);
-        if (between) {
-          const min = Number(between[1]);
-          const max = Number(between[2]);
+        if (numbers.length >= 2) {
+          const min = Number(numbers[0]);
+          const max = Number(numbers[1]);
           return price >= min && price <= max;
         }
         return true;
@@ -71,18 +82,14 @@
     }
   
     function applyFiltersSortPaginate() {
-
       // ------------------ FILTER ITEMS ------------------
       let filtered = state.items.filter(item => {
         const catOk =
           state.categories.size === 0 || state.categories.has(item.category);
-    
         const priceOk = priceInRanges(item.price);
-    
         return catOk && priceOk;
       });
-    
-    
+
       // ------------------ SORT ITEMS ------------------
       if (state.sort === 'price-asc') {
         filtered.sort((a, b) => a.price - b.price);
@@ -93,42 +100,41 @@
       else if (state.sort === 'newest') {
         filtered.sort((a, b) => b.createdAt - a.createdAt);
       }
-    
-    
-      // ------------------ PAGINATION ------------------
-      const perPage = state.perPage;
-      const start = (state.page - 1) * perPage;
-      const end = start + perPage;
-    
-      const paginated = filtered.slice(start, end);
-    
-      // Hide all items first
-      state.items.forEach(item => {
-        item.el.style.display = 'none';
-      });
-    
-      // Show ONLY current page items
-      paginated.forEach(item => {
-        item.el.style.display = '';
-      });
-    
+
       // Total pages available
+      const perPage = state.perPage;
       const totalPages = Math.ceil(filtered.length / perPage);
-    
+
       // Prevent page overflow
       if (state.page > totalPages) {
         state.page = totalPages || 1;
       }
-    
-    
-      // ------------------ UPDATE ACTIVE BUTTON ------------------
+
+      // ------------------ PAGINATION ------------------
+      const start = (state.page - 1) * perPage;
+      const end = start + perPage;
+      const paginated = filtered.slice(start, end);
+
+      // Hide all items first
+      state.items.forEach(item => {
+        item.el.style.display = 'none';
+      });
+
+      // Show ONLY current page items
+      paginated.forEach(item => {
+        item.el.style.display = '';
+      });
+
+      // ------------------ UPDATE PAGINATION UI ------------------
       const pag = $('.pagination');
       if (pag) {
-        const numBtns = $$('button.page-btn', pag);
-        numBtns.forEach(btn => btn.classList.remove('active'));
-    
-        const currentBtn = numBtns.find(b => b.textContent.trim() == state.page);
-        if (currentBtn) currentBtn.classList.add('active');
+        let pagHtml = '<button class="prev" aria-label="Previous page">‹</button>';
+        for (let i = 1; i <= totalPages; i++) {
+          const activeClass = i === state.page ? 'active' : '';
+          pagHtml += `<button class="page-btn ${activeClass}">${i}</button>`;
+        }
+        pagHtml += '<button class="next" aria-label="Next page">›</button>';
+        pag.innerHTML = pagHtml;
       }
     }
     
@@ -224,13 +230,13 @@
             <img class="cart-item-thumb" src="${it.thumbSrc}" alt="${it.title}">
             <div>
               <div class="cart-item-title">${it.title}</div>
-              <div class="cart-item-price">$${it.price.toFixed(2)}</div>
+              <div class="cart-item-price">NGN ${it.price.toLocaleString()}</div>
             </div>
             <button class="cart-item-remove" data-index="${idx}">Remove</button>
           `;
           itemsWrap.appendChild(row);
         });
-        totalEl.textContent = `$${total.toFixed(2)}`;
+        totalEl.textContent = `NGN ${total.toLocaleString()}`;
   
         // remove handlers
         $$('.cart-item-remove', itemsWrap).forEach(btn => {
@@ -282,10 +288,28 @@
             return;
           }
 
+          if (typeof PaystackPop === 'undefined') {
+            alert('Payment system is currently unavailable. Please check your internet connection.');
+            return;
+          }
+
           const total = state.cart.reduce((sum, item) => sum + item.price, 0);
-          const email = $('#cart-email')?.value || 'customer@example.com';
+          const email = $('#cart-email')?.value || '';
           const fullName = $('#cart-name')?.value || '';
           const phone = $('#cart-phone')?.value || '';
+
+          if (!email || !email.includes('@')) {
+            alert('Please enter a valid email address.');
+            return;
+          }
+
+          if (total <= 0) {
+            alert('Invalid total amount.');
+            return;
+          }
+
+          // Close cart before opening Paystack to avoid UI overlap issues
+          closeCart();
 
           const handler = PaystackPop.setup({
             key: 'pk_test_0ebacd0179556628f883151650864d7d8dea86b7',
@@ -331,12 +355,24 @@
           let title = 'Item';
           let price = 0;
           let thumbSrc = '';
+
           if (card) {
             title = $('.photo-title', card)?.textContent.trim() || title;
-            const priceText = $('.photo-price', card)?.textContent.replace(/[^0-9.]/g, '') || '0';
-            price = Number(priceText) || 0;
+            const priceText = $('.photo-price', card)?.textContent || '0';
+            price = parsePrice(priceText);
             thumbSrc = $('img', card)?.getAttribute('src') || '';
+          } else if (e.target.classList.contains('add-to-cart-btn')) {
+            // Hero item
+            title = "Casamigos and Martell";
+            price = 50000; // Hero items price
+            thumbSrc = "./images/DRINKS PHOTOS/CASAMI AND MARTELL.jpg";
           }
+
+          if (price <= 0) {
+            alert('This item currently has no price. Please contact us for details.');
+            return;
+          }
+
           state.cart.push({ title, price, thumbSrc });
           state.cartCount += 1;
           updateBadge();
