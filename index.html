@@ -15,10 +15,27 @@
   </head>
   <body>
     <header class="header">
-      <p style="font-size: 50px; font-family: Arial;">EBUKA - AND -NONSO</p>
+      <div class="header-container">
+        <p class="main-logo">EBUKA - AND - NONSO</p>
 
-      
-      <img src="./images/Vector.png" alt="shopping cart" />
+        <button class="menu-toggle" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+
+        <nav class="navbar">
+          <ul class="nav-links">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <div class="cart-trigger">
+            <img src="./images/Vector.png" alt="shopping cart" class="cart-icon" />
+          </div>
+        </div>
+      </div>
     </header>
 
     <section class="hero-section">
@@ -41,7 +58,7 @@
           <img src="./images/DRINKS PHOTOS/E5.jpg" alt="header" height="200"/>
         </div>
 
-        <div class="hero-description">
+        <div class="hero-description" id="about">
           <div class="description-left">
             <h3>Drinks Merchant</h3>
             <span class="photo-category">ALCOHOL AND NON-ALCOHOL</span>
@@ -55,18 +72,16 @@
             <h3>People also buy</h3>
             <div class="people-also-buy">
               <div class="also-buy-item">
-                <img src="./images/DRINKS PHOTOS/SIERRA TEQUILA.jpg" alt="Camera equipment" width="200" />
-                <img src="./images/DRINKS PHOTOS/ALOMO BOTTLE.jpg" alt="Camera equipment" width="200" />
-                
-
+                <img src="./images/DRINKS PHOTOS/SIERRA TEQUILA.jpg" alt="Sierra Tequila" />
+                <img src="./images/DRINKS PHOTOS/ALOMO BOTTLE.jpg" alt="Alomo Bottle" />
               </div>
               <div class="also-buy-item">
-                <img src="./images/DRINKS PHOTOS/Don Julio1.jpg" alt="Picture frame" width="200"/>
-                <img src="./images/DRINKS PHOTOS/JAMESON BIG.jpg" alt="Picture frame" width="200"/>
+                <img src="./images/DRINKS PHOTOS/Don Julio1.jpg" alt="Don Julio" />
+                <img src="./images/DRINKS PHOTOS/JAMESON BIG.jpg" alt="Jameson Big" />
               </div>
               <div class="also-buy-item">
-                <img src="./images/DRINKS PHOTOS/GBEFUN.jpg" alt="Photo print"  width="200" />
-                <img src="./images/DRINKS PHOTOS/GORDON'S CAN.jpg" alt="Photo print"  width="200" />
+                <img src="./images/DRINKS PHOTOS/GBEFUN.jpg" alt="Gbefun" />
+                <img src="./images/DRINKS PHOTOS/GORDON'S CAN.jpg" alt="Gordon's Can" />
               </div>
             </div>
             <div class="details">
@@ -115,7 +130,7 @@
         </div>
       </aside>
 
-      <main class="gallery">
+      <main class="gallery" id="shop">
         <div class="gallery-header">
           <h2 class="gallery-title">
             Photography / <span>Premium Photos</span>
@@ -202,7 +217,7 @@
           </div>
 
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/sabrina.jpeg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/sabrina.jpeg" alt="Sabrina" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">SABRINA</h3>
@@ -211,7 +226,7 @@
             </div>
           </div>
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/POCARI SWEAT.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/POCARI SWEAT.jpg" alt="Pocari Sweat" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">POCARI SWEAT</h3>
@@ -220,7 +235,7 @@
             </div>
           </div>
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/YOYO BITTERS.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/YOYO BITTERS.jpg" alt="Yoyo Bitters" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">YOYO BITTERS</h3>
@@ -229,7 +244,7 @@
             </div>
           </div>
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/BELAIRE ROSE.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/BELAIRE ROSE.jpg" alt="Belaire Rose" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">BELAIRE ROSE</h3>
@@ -239,7 +254,7 @@
           </div>
    
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/TEELING WHISKEY.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/TEELING WHISKEY.jpg" alt="Teeling Whiskey" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">TEELING WHISKEY</h3>
@@ -249,7 +264,7 @@
           </div>
 
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/KONDO BITTERS.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/KONDO BITTERS.jpg" alt="Kondo Bitters" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">KONDO BITTERS</h3>
@@ -258,7 +273,7 @@
             </div>
           </div>
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/KUEMMERLING.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/KUEMMERLING.jpg" alt="Kuemmerling" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">KUEMMERLING</h3>
@@ -267,7 +282,7 @@
             </div>
           </div>
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/SEADON'S.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/SEADON'S.jpg" alt="Seadon's" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">SEADON'S</h3>
@@ -276,7 +291,7 @@
             </div>
           </div>
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/ALOMO BOTTLES.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/ALOMO BOTTLES.jpg" alt="Alomo Bitters" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">ALOMO BITTERS</h3>
@@ -285,7 +300,7 @@
             </div>
           </div>
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/GLENFIDISH OPEN.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/GLENFIDISH OPEN.jpg" alt="Glenfiddich 21 years" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">GLENFIDDICH 21 years</h3>
@@ -294,7 +309,7 @@
             </div>
           </div>
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/SYMPHONY RED WINE.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/SYMPHONY RED WINE.jpg" alt="Symphony Red Wine" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">SYMPHONY  RED WINE</h3>
@@ -303,7 +318,7 @@
             </div>
           </div>
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/JAMESON BIG.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/JAMESON BIG.jpg" alt="Jameson Big" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">JAMESON BIG</h3>
@@ -312,7 +327,7 @@
             </div>
           </div>
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/MARTINI ROSE.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/MARTINI ROSE.jpg" alt="Martini Rose" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">MARTINI ROSE</h3>
@@ -321,7 +336,7 @@
             </div>
           </div>
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/RED LABEL.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/RED LABEL.jpg" alt="Red Label" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">RED LABEL </h3>
@@ -330,7 +345,7 @@
             </div>
           </div>
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/CASAMI AND MARTELL.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/CASAMI AND MARTELL.jpg" alt="Casamigos and Martell" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">CASAMIGOS AND MARTELL</h3>
@@ -339,7 +354,7 @@
             </div>
           </div>
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/GORDON'S MEDIUM.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/GORDON'S MEDIUM.jpg" alt="Gordon Med" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">GORDON MED</h3>
@@ -348,7 +363,7 @@
             </div>
           </div>
           <div class="photo-item">
-            <img src="./images/DRINKS PHOTOS/BACARDI.jpg" alt="Architecture" width="20"/>
+            <img src="./images/DRINKS PHOTOS/BACARDI.jpg" alt="Bacardi" />
             <div class="photo-info">
               <span class="photo-category">Landmarks</span>
               <h3 class="photo-title">BACARDI</h3>
