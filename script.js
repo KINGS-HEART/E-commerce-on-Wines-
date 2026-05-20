@@ -363,9 +363,9 @@
             thumbSrc = $('img', card)?.getAttribute('src') || '';
           } else if (e.target.classList.contains('add-to-cart-btn')) {
             // Hero item
-            title = "Casamigos and Martell";
-            price = 50000; // Hero items price
-            thumbSrc = "./images/DRINKS PHOTOS/CASAMI AND MARTELL.jpg";
+            title = "Symphony Red Wine";
+            price = 25000; // Hero item price
+            thumbSrc = "./images/DRINKS PHOTOS/SYMPHONY RED WINE.jpg";
           }
 
           if (price <= 0) {

@@ -170,11 +170,39 @@ body {
 .hero-section {
   padding: var(--space-3xl) var(--space-lg);
   border-bottom: 1px solid var(--color-gray-extra-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.cinematic-hero {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+.vineyard-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)),
+              url('https://images.unsplash.com/photo-1506377247377-2a5b3b0ca7df?auto=format&fit=crop&q=80&w=1920') center/cover no-repeat;
+  z-index: -1;
+  filter: blur(1px) brightness(0.8);
+  animation: backgroundPan 30s linear infinite alternate;
+}
+
+@keyframes backgroundPan {
+  from { transform: scale(1.1) translateX(-3%); }
+  to { transform: scale(1.1) translateX(3%); }
 }
 
 .hero-content {
   max-width: 1200px;
   margin: 0 auto;
+  width: 100%;
+  z-index: 2;
 }
 
 .hero-top {
@@ -182,6 +210,9 @@ body {
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: var(--space-2xl);
+  color: var(--color-white);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
 }
 
 .hero-title {
@@ -189,12 +220,12 @@ body {
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  color: var(--color-black);
+  text-shadow: 0 4px 12px rgba(0,0,0,0.6);
 }
 
 .add-to-cart-btn {
-  background: var(--color-black);
-  color: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-black);
   padding: var(--space-md) var(--space-2xl);
   border: none;
   font-size: var(--text-sm);
@@ -203,32 +234,82 @@ body {
   letter-spacing: 0.1em;
   cursor: pointer;
   transition: transform 0.2s ease, background 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .add-to-cart-btn:hover {
-  background: var(--color-gray-dark);
+  background: var(--color-gray-extra-light);
   transform: translateY(-2px);
 }
 
-.hero-image-wrapper {
+.hero-image-container {
   position: relative;
-  margin-bottom: var(--space-3xl);
+  max-width: 500px;
+  margin: 0 auto var(--space-3xl);
 }
 
-.hero-image {
+.hero-image-wrapper.showcase {
+  position: relative;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  padding: var(--space-xl);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+  animation: float 8s ease-in-out infinite;
+  overflow: hidden;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(1deg); }
+  50% { transform: translateY(-20px) rotate(-1deg); }
+}
+
+.hero-image.main-bottle {
   width: 100%;
-  height: clamp(300px, 65vh, 650px);
-  object-fit: cover;
+  height: clamp(350px, 50vh, 550px);
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+}
+
+.glass-reflection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0) 30%,
+    rgba(255,255,255,0.4) 45%,
+    rgba(255,255,255,0.5) 50%,
+    rgba(255,255,255,0.4) 55%,
+    rgba(255,255,255,0) 70%,
+    rgba(255,255,255,0) 100%
+  );
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  animation: shimmer 5s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(250%) skewX(-20deg); }
 }
 
 .photo-of-day {
   position: absolute;
-  left: 0;
-  bottom: var(--space-xl);
-  background: var(--color-white);
+  right: -20px;
+  bottom: -10px;
+  background: var(--color-accent);
+  color: var(--color-white);
   padding: var(--space-sm) var(--space-xl);
   font-size: var(--text-md);
   font-weight: 700;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  z-index: 3;
 }
 
 .hero-description {
