@@ -393,7 +393,23 @@
       handleFilters();
       handlePagination();
       handleCart();
+      handleFavorites();
   
+      function handleFavorites() {
+        document.addEventListener('click', e => {
+          const btn = e.target.closest('.favorite-btn');
+          if (btn) {
+            btn.classList.toggle('active');
+            const isFavorite = btn.classList.contains('active');
+            // Visual feedback or persisted state could go here
+            btn.style.transform = 'scale(1.3)';
+            setTimeout(() => {
+              btn.style.transform = '';
+            }, 200);
+          }
+        });
+      }
+
       // Mobile menu toggle
       const menuToggle = $('.menu-toggle');
       const navbar = $('.navbar');
