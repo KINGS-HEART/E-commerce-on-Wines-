@@ -452,6 +452,21 @@
         }
       }
   
+      // Newsletter Form Handling
+      const newsletterForm = $('.newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const emailInput = $('.newsletter-input', newsletterForm);
+          const email = emailInput.value;
+          if (email) {
+            // In a real app, you would send this to a backend
+            alert(`Thank you for joining our Wine Club, ${email}! We've sent a welcome gift to your inbox.`);
+            emailInput.value = '';
+          }
+        });
+      }
+
       applyFiltersSortPaginate();
     }
   
