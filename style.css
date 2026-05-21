@@ -20,7 +20,8 @@
   --space-4xl: 80px;
 
   /* Typography Scale */
-  --font-base: "Archivo", sans-serif;
+  --font-base: "Inter", sans-serif;
+  --font-headings: "Playfair Display", serif;
   --text-xs: 12px;
   --text-sm: 14px;
   --text-base: 16px;
@@ -46,6 +47,10 @@ body {
   color: var(--color-gray-dark);
   line-height: var(--line-height-base);
   -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .main-logo, .hero-title, .gallery-title, .photo-title, .cart-header h3 {
+  font-family: var(--font-headings);
 }
 
 /* Header & Navigation */
