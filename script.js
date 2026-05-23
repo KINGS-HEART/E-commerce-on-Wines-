@@ -384,6 +384,31 @@
       window.__openCart = openCart;
     }
   
+    // Intersection Observer for active link highlighting
+    function handleActiveLinks() {
+      const sections = $$('section[id], main[id]');
+      const navLinks = $$('.nav-link');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+            });
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => observer.observe(section));
+    }
+
     // Initialize
     function init() {
       parseItems();
@@ -394,6 +419,7 @@
       handlePagination();
       handleCart();
       handleFavorites();
+      handleActiveLinks();
   
       function handleFavorites() {
         document.addEventListener('click', e => {
@@ -452,6 +478,21 @@
         }
       }
   
+      // Newsletter Form Handling
+      const newsletterForm = $('.newsletter-form');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const emailInput = $('.newsletter-input', newsletterForm);
+          const email = emailInput.value;
+          if (email) {
+            // In a real app, you would send this to a backend
+            alert(`Thank you for joining our Wine Club, ${email}! We've sent a welcome gift to your inbox.`);
+            emailInput.value = '';
+          }
+        });
+      }
+
       applyFiltersSortPaginate();
     }
   
