@@ -546,6 +546,58 @@ h1, h2, h3, h4, .main-logo, .hero-title, .gallery-title, .photo-title, .cart-hea
   transform: scale(1.1);
 }
 
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 5;
+  color: var(--color-white);
+  transform: translateY(10px);
+}
+
+.photo-item:hover .photo-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  width: 100%;
+  transform: scale(0.9);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+
+.photo-item:hover .specs-grid {
+  transform: scale(1);
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.spec-item span {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--color-gray-light);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.spec-item strong {
+  font-size: var(--text-sm);
+  font-family: var(--font-headings);
+}
+
 /* Badges & Favorite */
 .product-badge {
   position: absolute;
