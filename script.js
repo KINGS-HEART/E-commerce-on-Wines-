@@ -123,6 +123,10 @@
       // Show ONLY current page items
       paginated.forEach(item => {
         item.el.style.display = '';
+        // Refresh AOS to detect newly visible items
+        if (typeof AOS !== 'undefined') {
+          AOS.refresh();
+        }
       });
 
       // ------------------ UPDATE PAGINATION UI ------------------
@@ -254,17 +258,47 @@
         const panel = $('.cart-panel');
         const backdrop = $('.cart-backdrop');
         if (!panel || !backdrop) return;
+
         panel.classList.add('open');
         panel.setAttribute('aria-hidden', 'false');
         backdrop.hidden = false;
+
+        if (typeof gsap !== 'undefined') {
+          gsap.fromTo(panel,
+            { x: "100%" },
+            { x: "0%", duration: 0.5, ease: "power3.out" }
+          );
+          gsap.fromTo(backdrop,
+            { opacity: 0 },
+            { opacity: 1, duration: 0.5 }
+          );
+        }
       }
       function closeCart() {
         const panel = $('.cart-panel');
         const backdrop = $('.cart-backdrop');
         if (!panel || !backdrop) return;
-        panel.classList.remove('open');
-        panel.setAttribute('aria-hidden', 'true');
-        backdrop.hidden = true;
+
+        if (typeof gsap !== 'undefined') {
+          gsap.to(panel, {
+            x: "100%",
+            duration: 0.4,
+            ease: "power3.in",
+            onComplete: () => {
+              panel.classList.remove('open');
+              panel.setAttribute('aria-hidden', 'true');
+            }
+          });
+          gsap.to(backdrop, {
+            opacity: 0,
+            duration: 0.4,
+            onComplete: () => { backdrop.hidden = true; }
+          });
+        } else {
+          panel.classList.remove('open');
+          panel.setAttribute('aria-hidden', 'true');
+          backdrop.hidden = true;
+        }
       }
   
       const closeBtn = $('.cart-close');
@@ -409,6 +443,52 @@
       sections.forEach(section => observer.observe(section));
     }
 
+    function initAnimations() {
+      if (typeof gsap === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero Entrance
+      const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1.2 } });
+
+      tl.from(".hero-title", { y: 80, opacity: 0, delay: 0.3 })
+        .from(".main-bottle", { y: 120, opacity: 0, scale: 0.9 }, "-=0.8")
+        .from(".add-to-cart-btn", { scale: 0, opacity: 0, ease: "back.out(1.7)" }, "-=0.5")
+        .from(".photo-of-day", { x: 30, opacity: 0 }, "-=0.5")
+        .from(".description-left", { x: -30, opacity: 0 }, "-=0.7")
+        .from(".description-right", { x: 30, opacity: 0 }, "-=0.7");
+
+      // Floating Bottle Animation
+      gsap.to(".main-bottle", {
+        y: -15,
+        duration: 2.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      // Subtle parallax on background
+      gsap.to(".vineyard-background", {
+        y: "20%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".hero-section",
+          start: "top top",
+          end: "bottom top",
+          scrub: true
+        }
+      });
+
+      // Initialize AOS
+      if (typeof AOS !== 'undefined') {
+        AOS.init({
+          duration: 1000,
+          once: true,
+          offset: 100,
+          easing: 'ease-out-cubic'
+        });
+      }
+    }
+
     // Initialize
     function init() {
       parseItems();
@@ -420,6 +500,7 @@
       handleCart();
       handleFavorites();
       handleActiveLinks();
+      initAnimations();
   
       function handleFavorites() {
         document.addEventListener('click', e => {
@@ -441,8 +522,16 @@
       const navbar = $('.navbar');
       if (menuToggle && navbar) {
         menuToggle.addEventListener('click', () => {
+          const isOpen = navbar.classList.contains('active');
           menuToggle.classList.toggle('active');
           navbar.classList.toggle('active');
+
+          if (typeof gsap !== 'undefined') {
+            if (!isOpen) {
+              gsap.fromTo(navbar, { x: "-100%" }, { x: "0%", duration: 0.5, ease: "power3.out" });
+              gsap.from(".nav-links li", { x: -20, opacity: 0, stagger: 0.1, delay: 0.2 });
+            }
+          }
         });
 
         // Close menu when a link is clicked
