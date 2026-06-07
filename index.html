@@ -19,10 +19,6 @@
       <div class="header-container">
         <a href="#home" class="main-logo">EBUKA & NONSO</a>
 
-        <button class="menu-toggle" aria-label="Toggle navigation">
-          <span class="hamburger"></span>
-        </button>
-
         <nav class="navbar">
           <ul class="nav-links">
             <li><a href="#home" class="nav-link active">Home</a></li>
@@ -39,6 +35,9 @@
             <img src="./images/Vector.png" alt="shopping cart" class="cart-icon" />
             <span class="cart-badge">0</span>
           </div>
+          <button class="menu-toggle" aria-label="Toggle navigation">
+            <span class="hamburger"></span>
+          </button>
         </div>
       </div>
     </header>
@@ -65,25 +64,23 @@
           <span class="photo-of-day">Premium Selection</span>
         </div>
 
-        <div class="hero-description" id="about">
+        <div class="hero-description">
           <div class="description-left">
-            <h3>Drinks Merchant</h3>
-            <span class="photo-category">ALCOHOL AND NON-ALCOHOL</span>
-            <p style="font-size: 22px;">
-               
+            <h3>Premium Experience</h3>
+            <span class="photo-category">CURATED SELECTION</span>
+            <p>
+              Discover our exclusive collection of the world's finest spirits, from heritage single malts to contemporary artisanal gins.
             </p>
-            
-            
           </div>
           <div class="description-right">
-            <h3>People also buy</h3>
+            <h3>Trending Now</h3>
             <div class="people-also-buy">
               <div class="also-buy-item">
                 <img src="./images/DRINKS PHOTOS/SIERRA TEQUILA.jpg" alt="Sierra Tequila" />
-                <img src="./images/DRINKS PHOTOS/ALOMO BOTTLE.jpg" alt="Alomo Bottle" />
+                <img src="./images/DRINKS PHOTOS/Don Julio1.jpg" alt="Don Julio" />
               </div>
               <div class="also-buy-item">
-                <img src="./images/DRINKS PHOTOS/Don Julio1.jpg" alt="Don Julio" />
+                <img src="./images/DRINKS PHOTOS/E5.jpg" alt="Hennessy" />
                 <img src="./images/DRINKS PHOTOS/JAMESON BIG.jpg" alt="Jameson Big" />
               </div>
               <div class="also-buy-item">
@@ -92,14 +89,47 @@
               </div>
             </div>
             <div class="details">
-              <h4>Specifications</h4>
-              <p><strong>Origin:</strong> France</p>
-              <p><strong>Grape:</strong> Cabernet Sauvignon</p>
+              <h4>Featured Selection</h4>
+              <p><strong>Wine:</strong> Symphony Red</p>
+              <p><strong>Region:</strong> Bordeaux</p>
               <p><strong>ABV:</strong> 13.5%</p>
-              <p><strong>Winery:</strong> Château Symphony</p>
-              <p><strong>Size:</strong> 750ml</p>
               <p><strong>Vintage:</strong> 2019</p>
-              <p><strong>Temp:</strong> 16-18°C</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="about-container">
+        <div class="about-grid">
+          <div class="about-image-wrapper" data-aos="fade-right">
+            <img src="./images/DRINKS PHOTOS/CASAMI AND MARTELL.jpg" alt="Luxury Bottles" class="about-img">
+            <div class="experience-badge">
+              <strong>15+</strong>
+              <span>Years of Excellence</span>
+            </div>
+          </div>
+          <div class="about-content" data-aos="fade-left">
+            <span class="about-subtitle">The Merchant's Story</span>
+            <h2 class="about-title">EBUKA & NONSO <br><span>Fine Spirits Merchant</span></h2>
+            <p>Founded on a passion for exceptional quality, we bring you a meticulously curated selection of the world's most prestigious beverages. Our mission is to bridge the gap between world-class distilleries and discerning connoisseurs in Nigeria.</p>
+
+            <div class="about-features">
+              <div class="feature-item">
+                <div class="feature-icon">🍷</div>
+                <div class="feature-text">
+                  <h4>Global Sourcing</h4>
+                  <p>Authentic imports from France, Scotland, and beyond.</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">🚚</div>
+                <div class="feature-text">
+                  <h4>Express Delivery</h4>
+                  <p>Swift, secure delivery within Lagos and nationwide.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -108,7 +138,10 @@
 
     <div class="main-content">
       <aside class="sidebar">
-        <h3>Category</h3>
+        <div class="sidebar-header">
+          <h3>Category</h3>
+          <button class="sidebar-close" aria-label="Close filters">&times;</button>
+        </div>
         <ul class="category-list">
           <li>
             <label><input type="checkbox" /> Bitters</label>
@@ -677,6 +710,506 @@
               <span class="photo-category">Rum</span>
               <h3 class="photo-title">BACARDI</h3>
               <p class="photo-price">#12000</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251203-WA0014.jpg" alt="Baron Romero" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>Spain</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Red Wine</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>11%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>750ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Red Wine</span>
+              <h3 class="photo-title">BARON ROMERO</h3>
+              <p class="photo-price">#8500</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251203-WA0015.jpg" alt="Four Cousins" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>South Africa</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Sweet Red</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>9.5%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>750ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Red Wine</span>
+              <h3 class="photo-title">FOUR COUSINS</h3>
+              <p class="photo-price">#9500</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251203-WA0016.jpg" alt="Carlo Rossi" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>USA</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Red Wine</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>12%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>750ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Red Wine</span>
+              <h3 class="photo-title">CARLO ROSSI</h3>
+              <p class="photo-price">#12500</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251203-WA0017.jpg" alt="J&W Blue Cocktail" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>Spain</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Cocktail</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>0%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>750ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Non-Alcoholic</span>
+              <h3 class="photo-title">J&W BLUE COCKTAIL</h3>
+              <p class="photo-price">#7500</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251203-WA0018.jpg" alt="4th Street" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>South Africa</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Sweet Red</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>8%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>750ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Red Wine</span>
+              <h3 class="photo-title">4TH STREET</h3>
+              <p class="photo-price">#8000</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251203-WA0019.jpg" alt="Andre Rose" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>USA</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Sparkling</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>9.5%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>750ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Sparkling</span>
+              <h3 class="photo-title">ANDRE ROSE</h3>
+              <p class="photo-price">#18500</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251203-WA0020.jpg" alt="Chamdor" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>South Africa</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Sparkling</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>0%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>750ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Non-Alcoholic</span>
+              <h3 class="photo-title">CHAMDOR</h3>
+              <p class="photo-price">#6500</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251203-WA0024.jpg" alt="Chivita Juice" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>Nigeria</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Juice</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>0%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>1L</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Non-Alcoholic</span>
+              <h3 class="photo-title">CHIVITA JUICE</h3>
+              <p class="photo-price">#2500</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20240926-WA0005.jpg" alt="Campari" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>Italy</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Liqueur</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>25%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>750ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Liqueur</span>
+              <h3 class="photo-title">CAMPARI</h3>
+              <p class="photo-price">#22000</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251011-WA0011.jpg" alt="Action Bitters" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>Nigeria</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Herbal</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>40%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>200ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Bitters</span>
+              <h3 class="photo-title">ACTION BITTERS</h3>
+              <p class="photo-price">#4000</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251126-WA0005.jpg" alt="Gbefun Bitters" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>Nigeria</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Herbal</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>40%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>200ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Bitters</span>
+              <h3 class="photo-title">GBEFUN BITTERS</h3>
+              <p class="photo-price">#3500</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251011-WA0009.jpeg" alt="Don Morris" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>Nigeria</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Spirit</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>30%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>750ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Spirit Bundle</span>
+              <h3 class="photo-title">DON MORRIS</h3>
+              <p class="photo-price">#8500</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20250911-WA0011.jpg" alt="Jack Williams" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>UK/Nigeria</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Whisky</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>40%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>750ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Whiskey</span>
+              <h3 class="photo-title">JACK WILLIAMS</h3>
+              <p class="photo-price">#15000</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251009-WA0028.jpeg" alt="Striker Bitters" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>Nigeria</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Herbal</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>40%</strong></div>
+                  <div class="spec-item"><span>Pack</span><strong>Carton</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Bitters</span>
+              <h3 class="photo-title">STRIKER BITTERS</h3>
+              <p class="photo-price">#12000</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251126-WA0006.jpg" alt="Spirit Mix" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Type</span><strong>Spirit Mix</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>Various</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Spirit Bundle</span>
+              <h3 class="photo-title">SPIRIT MIX BUNDLE</h3>
+              <p class="photo-price">#25000</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <span class="product-badge badge-limited">Limited</span>
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/CASAMIGOS TEQUILA.jpg" alt="Casamigos Tequila" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>Mexico</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Tequila</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>40%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>700ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Tequila</span>
+              <h3 class="photo-title">CASAMIGOS TEQUILA</h3>
+              <p class="photo-price">#85000</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/Don Julio1.jpg" alt="Don Julio" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>Mexico</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Tequila</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>40%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>750ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Tequila</span>
+              <h3 class="photo-title">DON JULIO</h3>
+              <p class="photo-price">#95000</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <span class="product-badge badge-best-seller">Premium</span>
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/E5.jpg" alt="Hennessy VSOP" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>France</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Cognac</strong></div>
+                  <div class="spec-item"><span>ABV</span><strong>40%</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>700ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Liqueur</span>
+              <h3 class="photo-title">HENNESSY VSOP</h3>
+              <p class="photo-price">#120k</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/GBEFUN.jpg" alt="Gbefun" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>Nigeria</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Bitters</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>375ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Bitters</span>
+              <h3 class="photo-title">GBEFUN</h3>
+              <p class="photo-price">#4500</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <span class="product-badge badge-limited">Elite</span>
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/GLENFIDDICH 21.jpg" alt="Glenfiddich 21" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>Scotland</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Single Malt</strong></div>
+                  <div class="spec-item"><span>Age</span><strong>21 Years</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>700ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Whiskey</span>
+              <h3 class="photo-title">GLENFIDDICH 21</h3>
+              <p class="photo-price">#280k</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/GORDON'S CAN.jpg" alt="Gordon's Can" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>UK</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Gin & Tonic</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>330ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Gin</span>
+              <h3 class="photo-title">GORDON'S CAN</h3>
+              <p class="photo-price">#2500</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251126-WA0007.jpg" alt="Gold Spirit" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>France</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Spirit</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>750ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Spirit Bundle</span>
+              <h3 class="photo-title">GOLD SPIRIT</h3>
+              <p class="photo-price">#45000</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/IMG-20251203-WA0013.jpg" alt="Don Morris Premium" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>Nigeria</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Spirit</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>750ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Spirit Bundle</span>
+              <h3 class="photo-title">DON MORRIS PREMIUM</h3>
+              <p class="photo-price">#12500</p>
+              <button class="photo-add-btn">Add to Cart</button>
+            </div>
+          </div>
+
+          <div class="photo-item" data-aos="fade-up">
+            <button class="favorite-btn" aria-label="Add to favorites">❤</button>
+            <div class="photo-image-container">
+              <img src="./images/DRINKS PHOTOS/ALOMO BOTTLE.jpg" alt="Alomo Bitters Single" />
+              <div class="photo-overlay">
+                <div class="specs-grid">
+                  <div class="spec-item"><span>Origin</span><strong>Ghana</strong></div>
+                  <div class="spec-item"><span>Type</span><strong>Bitters</strong></div>
+                  <div class="spec-item"><span>Size</span><strong>200ml</strong></div>
+                </div>
+              </div>
+            </div>
+            <div class="photo-info">
+              <span class="photo-category">Bitters</span>
+              <h3 class="photo-title">ALOMO BITTERS SINGLE</h3>
+              <p class="photo-price">#1500</p>
               <button class="photo-add-btn">Add to Cart</button>
             </div>
           </div>
