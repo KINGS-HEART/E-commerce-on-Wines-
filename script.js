@@ -528,8 +528,8 @@
 
           if (typeof gsap !== 'undefined') {
             if (!isOpen) {
-              gsap.fromTo(navbar, { x: "-100%" }, { x: "0%", duration: 0.5, ease: "power3.out" });
-              gsap.from(".nav-links li", { x: -20, opacity: 0, stagger: 0.1, delay: 0.2 });
+              gsap.fromTo(navbar, { x: "100%" }, { x: "0%", duration: 0.5, ease: "power3.out" });
+              gsap.from(".nav-links li", { x: 20, opacity: 0, stagger: 0.1, delay: 0.2 });
             }
           }
         });
@@ -546,6 +546,7 @@
       // Mobile filters toggle
       const filtersToggle = $('.filters-toggle');
       const sidebar = $('.sidebar');
+      const sidebarClose = $('.sidebar-close');
       const backdropEl = $('.cart-backdrop');
       if (filtersToggle && sidebar) {
         filtersToggle.addEventListener('click', () => {
@@ -557,11 +558,21 @@
             backdropEl.classList.toggle('filters-open', nowOpen);
           }
         });
+        if (sidebarClose) {
+          sidebarClose.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+            if (backdropEl) {
+              backdropEl.hidden = true;
+              backdropEl.classList.remove('filters-open');
+            }
+          });
+        }
         if (backdropEl) {
           backdropEl.addEventListener('click', () => {
             if (sidebar.classList.contains('open')) {
               sidebar.classList.remove('open');
               backdropEl.classList.remove('filters-open');
+              backdropEl.hidden = true;
             }
           });
         }
