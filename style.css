@@ -699,6 +699,9 @@ h1, h2, h3, h4, .main-logo, .hero-title, .gallery-title, .photo-title, .cart-hea
   background: var(--color-white);
   padding: var(--space-sm);
   border-radius: 4px;
+  /* Ensure visibility if GSAP fails */
+  opacity: 1;
+  visibility: visible;
 }
 
 .photo-item:hover {

@@ -123,11 +123,11 @@
       // Show ONLY current page items
       paginated.forEach(item => {
         item.el.style.display = '';
-        // Refresh AOS to detect newly visible items
-        if (typeof AOS !== 'undefined') {
-          AOS.refresh();
-        }
       });
+
+      // Refresh scroll animations
+      if (typeof AOS !== 'undefined') AOS.refresh();
+      if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
 
       // ------------------ UPDATE PAGINATION UI ------------------
       const pag = $('.pagination');
@@ -466,16 +466,21 @@
         ease: "power1.inOut"
       });
 
-      // Product Grid Entrance
-      gsap.from(".photo-item", {
+      // Product Grid Entrance - Only animate visible items on first load/scroll
+      gsap.from(".photo-grid .photo-item", {
         scrollTrigger: {
           trigger: ".photo-grid",
           start: "top 85%",
+          once: true
         },
         y: 60,
         opacity: 0,
-        stagger: 0.1,
-        duration: 1,
+        stagger: {
+          amount: 0.8,
+          grid: "auto",
+          from: "start"
+        },
+        duration: 1.2,
         ease: "power3.out"
       });
 
