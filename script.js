@@ -448,22 +448,59 @@
       gsap.registerPlugin(ScrollTrigger);
 
       // Hero Entrance
-      const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1.2 } });
+      const tl = gsap.timeline({ defaults: { ease: "expo.out", duration: 1.5 } });
 
-      tl.from(".hero-title", { y: 80, opacity: 0, delay: 0.3 })
-        .from(".main-bottle", { y: 120, opacity: 0, scale: 0.9 }, "-=0.8")
-        .from(".add-to-cart-btn", { scale: 0, opacity: 0, ease: "back.out(1.7)" }, "-=0.5")
-        .from(".photo-of-day", { x: 30, opacity: 0 }, "-=0.5")
-        .from(".description-left", { x: -30, opacity: 0 }, "-=0.7")
-        .from(".description-right", { x: 30, opacity: 0 }, "-=0.7");
+      tl.from(".hero-title", { y: 100, opacity: 0, delay: 0.2 })
+        .from(".main-bottle", { y: 150, opacity: 0, scale: 0.8, rotate: -5 }, "-=1.2")
+        .from(".add-to-cart-btn", { scale: 0.5, opacity: 0, ease: "back.out(2)" }, "-=1")
+        .from(".photo-of-day", { x: 50, opacity: 0 }, "-=1")
+        .from(".description-left", { x: -50, opacity: 0 }, "-=1.2")
+        .from(".description-right", { x: 50, opacity: 0 }, "-=1.2");
 
       // Floating Bottle Animation
       gsap.to(".main-bottle", {
-        y: -15,
-        duration: 2.5,
+        y: -20,
+        duration: 3,
         repeat: -1,
         yoyo: true,
-        ease: "sine.inOut"
+        ease: "power1.inOut"
+      });
+
+      // Product Grid Entrance
+      gsap.from(".photo-item", {
+        scrollTrigger: {
+          trigger: ".photo-grid",
+          start: "top 85%",
+        },
+        y: 60,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 1,
+        ease: "power3.out"
+      });
+
+      // About Section Scroll Animation
+      gsap.from(".about-image-wrapper", {
+        scrollTrigger: {
+          trigger: ".about-section",
+          start: "top 80%",
+        },
+        x: -100,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power4.out"
+      });
+
+      gsap.from(".about-content > *", {
+        scrollTrigger: {
+          trigger: ".about-section",
+          start: "top 80%",
+        },
+        x: 100,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 1,
+        ease: "power4.out"
       });
 
       // Subtle parallax on background
